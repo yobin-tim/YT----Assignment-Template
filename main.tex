@@ -1,0 +1,119 @@
+\documentclass{article} % kind of document 
+\usepackage[utf8]{inputenc} %encoding of choice
+\usepackage[american]{babel} %language of choice
+\usepackage{fancyhdr} %for header
+\usepackage{amsmath} %math mode
+\usepackage{amssymb} %math symbols
+\usepackage{amsthm} %math theorem
+\usepackage{enumerate} %make lists
+\usepackage{graphicx} %insert images
+\usepackage{float} %to fix image position
+\usepackage{moreverb} %to make boxes
+\usepackage{hyperref} %to create hyperlinks
+\usepackage{lipsum} %lorem ipsum package
+\usepackage{setspace} % to use singlespace below in the solution environment
+\usepackage[us]{datetime} %package for setting due date in US format
+\newdate{duedate}{05}{08}{2020} %to set a due date
+
+\usepackage[margin=1in]{geometry}
+\pagestyle{fancy}
+
+
+\lhead{Due: \displaydate{duedate}}
+\chead{Top Centre}
+\rhead{Top Right}
+
+
+\DeclareMathOperator*{\E}{\mathbb{E}} %ease of writing e and E
+\newcommand{\e}{\mathrm{e}}
+
+\newtheorem{theorem}{theorem} % Theorem display format
+\newtheorem{problem}[theorem]{Problem} % Problem display format, last bracket sets display choice
+
+\newenvironment{solution}[1][Answer]{\begin{singlespace}\underline{\textbf{#1:}}\quad }{\ \rule{0.3em}{0.3em}\end{singlespace}} % Answer format
+
+\begin{document}
+
+\begin{problem}
+\normalfont
+\textbf{(Main Question Header)}
+
+\noindent \lipsum[1]
+\end{problem}
+
+\begin{solution}
+We have, 
+$$ \alpha  \beta  \gamma \Gamma \delta \Delta $$ % the double dollar signs create a Math env and centralize the content
+
+
+\textbf{Note} that, when starting out, you can find several sources on the internet to help you find mathematical symbols that are \textit{predefined} in the TEX package.
+
+The source that I use most is linked \hyperlink{https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols}{here}.
+
+\underline{A sidenote:} There are a few symbols and expressions that are either harder to find on the internet or have multiple ways to be achieved. I will list them below.
+
+\begin{itemize}
+    \item plims: $ \overset{p}{\longrightarrow} $
+    
+    \item Matrices
+            $$V = \begin{bmatrix} 
+    v_{11} & v_{12} &v_{13} \\v_{21} & v_{22} &v_{23} \\ v_{31} & v_{32} & v_{33}
+    \end{bmatrix}$$
+    There are other shapes of matrices that you can easily create
+    $$ \begin{pmatrix} 
+    v_{11} & v_{12} &v_{13} \\v_{21} & v_{22} &v_{23} \\ v_{31} & v_{32} & v_{33}
+    \end{pmatrix} $$
+    $$\begin{vmatrix} 
+    v_{11} & v_{12} &v_{13} \\v_{21} & v_{22} &v_{23} \\ v_{31} & v_{32} & v_{33}
+    \end{vmatrix}  $$
+    
+    \item Widehats: $\widehat{Wide}$ as opposed to $\hat{narrow}$
+    
+    \item Make brackets as big as the expressions inside using \textit{left} and \textit{right} commands:
+    $$  = (\hat{\beta}_2 - \hat{\beta}_3) \left(\begin{bmatrix} 
+    0 & 1 & -1
+    \end{bmatrix} \frac{1}{n} \begin{bmatrix} 
+    v_{11} & v_{12} &v_{13} \\v_{21} & v_{22} &v_{23} \\ v_{31} & v_{32} & v_{33}
+    \end{bmatrix} \begin{bmatrix} 
+    0 \\ 1 \\ -1
+    \end{bmatrix}\right)^{-1} (\hat{\beta}_2 - \hat{\beta}_3) $$
+    as opposed to 
+    $$  = (\hat{\beta}_2 - \hat{\beta}_3) (\begin{bmatrix} 
+    0 & 1 & -1
+    \end{bmatrix} \frac{1}{n} \begin{bmatrix} 
+    v_{11} & v_{12} &v_{13} \\v_{21} & v_{22} &v_{23} \\ v_{31} & v_{32} & v_{33}
+    \end{bmatrix} \begin{bmatrix} 
+    0 \\ 1 \\ -1
+    \end{bmatrix})^{-1} (\hat{\beta}_2 - \hat{\beta}_3) $$
+    
+    \item Box your final answers to make them stand out using \textit{box}:
+    $$ \boxed{\frac{\hat{\beta}_2}{\hat{\beta}_3^3} = 1 \text{ and } \hat{\beta}_2 = 1} $$
+    
+\end{itemize}
+
+Also, if you don't leave a space in your \LaTeX{} code before ending the \textit{solution} environment, the small black square will appear beside the end of the answer instead of a line below.
+\end{solution}
+
+\begin{problem}
+\normalfont
+\textbf{(Main question header for the second questions)}
+
+\noindent 
+\begin{enumerate}[(i)]
+    \item Subquestion
+    \begin{solution}
+    
+    \end{solution}
+    
+    \item Another subquestion
+    \begin{solution}
+    This is just to show that the solution can be written inside the \textit{problem} environment.
+    
+    Also check out the additional (optional) argument taken by \textit{enumerate} that lets you choose between different kinds of numbered lists.
+    
+    \end{solution}
+\end{enumerate}
+\end{problem}
+
+
+\end{document}
